@@ -1,8 +1,16 @@
 export default interface IUsers {
     gender: string,
-    name: {},
+    dob: {
+        age: number,
+    }
+    name: {
+        first: string,
+        last: string
+    },
     location: {},
     email: string,
-    pictures: {},
+    picture: {
+        large: string,
+    },
     nat: string
 }

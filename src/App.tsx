@@ -3,14 +3,26 @@ import './App.css';
 import axiosRequest from "./services/axios-request";
 import IUsers from "./types/users.type";
 import TinderCard from "react-tinder-card";
+import { IoIosCloseCircleOutline } from 'react-icons/io';
+import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
+import ReactCountryFlag from "react-country-flag";
+
 
 const App: React.FC = () => {
     const initialValues: IUsers = {
         gender: "",
-        name: {},
+        dob: {
+            age: 0
+        },
+        name: {
+            first: "",
+            last: "",
+        },
         location: {},
         email: "",
-        pictures: {},
+        picture: {
+            large: ""
+        },
         nat: ""
     };
 
@@ -29,26 +41,56 @@ const App: React.FC = () => {
         getUser();
     }, []);
 
+    const onSwipe = () => {
+        getUser();
+    }
+
+    const hired = () => {
+        console.log('Hired')
+    }
+
+    const rejected = () => {
+        getUser();
+    }
+
     console.log(user)
 
-    const onSwipe = (direction: any) => {
-        console.log('You swiped: ' + direction)
-    }
-
-    const onCardLeftScreen = (myIdentifier: any) => {
-        console.log(myIdentifier + ' left the screen')
-    }
-
   return (
-    <div className="App">
-        <TinderCard
-            onSwipe={onSwipe}
-            onCardLeftScreen={() => onCardLeftScreen('fooBar')}
-            preventSwipe={['right', 'left']}
-        >
-            Pictures
-        </TinderCard>
-    </div>
+      <div className="container">
+          <TinderCard
+              onSwipe={onSwipe}
+              preventSwipe={['right', 'left']}
+          >
+              <div className="image-container">
+                  <img src={user.picture.large} alt={user.name.first} />
+                  <div className="user-card">
+                      <div className="user-information">
+                          <h2>{user.name.first} {user.name.last}, {user.dob.age}, {user.gender}</h2>
+                          <span>{user.email}</span>
+                      </div>
+                      <div>
+                          <ReactCountryFlag
+                              countryCode={user.nat}
+                              style={{
+                                  fontSize: '4rem',
+                                  lineHeight: '4rem',
+                              }}
+                          />
+
+                      </div>
+                  </div>
+              </div>
+              <div className="action-container">
+                  <a href="#" onClick={rejected}>
+                      <IoIosCloseCircleOutline className="icons" />
+                  </a>
+                  <a href="#" onClick={hired}>
+                      <IoIosCheckmarkCircleOutline className="icons" />
+                  </a>
+
+              </div>
+          </TinderCard>
+      </div>
   );
 }
 
