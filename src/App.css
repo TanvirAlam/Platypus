@@ -10,3 +10,12 @@ html {
   text-align: center;
 }
 
+.container {
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 2rem;
+}
+
+img {
+    width: 20%;
+}

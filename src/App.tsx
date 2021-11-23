@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import axiosRequest from "./services/axios-request";
 import IUsers from "./types/users.type";
+import TinderCard from "react-tinder-card";
 
-function App() {
+const App: React.FC = () => {
     const initialValues: IUsers = {
         gender: "",
         name: {},
@@ -30,9 +31,23 @@ function App() {
 
     console.log(user)
 
+    const onSwipe = (direction: any) => {
+        console.log('You swiped: ' + direction)
+    }
+
+    const onCardLeftScreen = (myIdentifier: any) => {
+        console.log(myIdentifier + ' left the screen')
+    }
+
   return (
     <div className="App">
-
+        <TinderCard
+            onSwipe={onSwipe}
+            onCardLeftScreen={() => onCardLeftScreen('fooBar')}
+            preventSwipe={['right', 'left']}
+        >
+            Pictures
+        </TinderCard>
     </div>
   );
 }
