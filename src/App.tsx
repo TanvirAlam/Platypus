@@ -4,7 +4,8 @@ import axiosRequest from "./services/axios-request";
 import IUsers from "./types/users.type";
 import TinderCard from "react-tinder-card";
 import { IoIosCloseCircleOutline } from 'react-icons/io';
-import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
+import { IoIosHeart } from 'react-icons/io';
+import { IoMdContacts } from 'react-icons/io';
 import ReactCountryFlag from "react-country-flag";
 
 
@@ -65,8 +66,8 @@ const App: React.FC = () => {
                   <img src={user.picture.large} alt={user.name.first} />
                   <div className="user-card">
                       <div className="user-information">
-                          <h2>{user.name.first} {user.name.last}, {user.dob.age}, {user.gender}</h2>
-                          <span>{user.email}</span>
+                          <h1>{user.name.first} {user.name.last}, {user.dob.age}, {user.gender}</h1>
+                          <h2>{user.email}</h2>
                       </div>
                       <div>
                           <ReactCountryFlag
@@ -85,9 +86,13 @@ const App: React.FC = () => {
                       <IoIosCloseCircleOutline className="icons" />
                   </a>
                   <a href="#" onClick={hired}>
-                      <IoIosCheckmarkCircleOutline className="icons" />
+                      <IoIosHeart className="icons" />
                   </a>
-
+              </div>
+              <div className="action-container">
+                  <a href="#" onClick={rejected}>
+                      <IoMdContacts className="all-user-icons" />
+                  </a>
               </div>
           </TinderCard>
       </div>
