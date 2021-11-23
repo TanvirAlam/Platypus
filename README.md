@@ -12,6 +12,10 @@
   - Create service provider with `axios`, make sure it's possible to do CRUD
   - Use Presentation/container pattern
     - Keep logic components decoupled from UI components
+    - Using: Easy component based design using Material-UI
+      - `@mui/material`
+      - `@emotion/styled`
+      - `@emotion/react`
     - Use `react-swipe-card` for swipe effect of each random users
     - Sample Design:
       ![sample-img.png](sample-img.png)
