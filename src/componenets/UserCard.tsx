@@ -1,8 +1,8 @@
 import React from "react";
 import IUsers from "../types/users.type";
 import TinderCard from "react-tinder-card";
-import ReactCountryFlag from "react-country-flag";
 import {IoIosCloseCircleOutline, IoIosHeart, IoMdContacts} from "react-icons/io";
+import UserContent from "./UserContent";
 
 interface IUserCard {
     onSwipe: (event: React.MouseEvent<HTMLElement>) => void,
@@ -18,25 +18,7 @@ const UserCard: React.FC<IUserCard> = (props: IUserCard) => {
                 {...props.onSwipe}
                 preventSwipe={['right', 'left']}
             >
-                <div className="image-container">
-                    <img src={props.user.picture.large} alt={props.user.name.first} />
-                    <div className="user-card">
-                        <div className="user-information">
-                            <h1>{props.user.name.first} {props.user.name.last}, {props.user.dob.age}, {props.user.gender}</h1>
-                            <h2>{props.user.email}</h2>
-                        </div>
-                        <div>
-                            <ReactCountryFlag
-                                countryCode={props.user.nat}
-                                style={{
-                                    fontSize: '4rem',
-                                    lineHeight: '4rem',
-                                }}
-                            />
-
-                        </div>
-                    </div>
-                </div>
+                <UserContent {...props.user} />
                 <div className="action-container">
                     <a href="#" {...props.onReject}>
                         <IoIosCloseCircleOutline className="icons" />
