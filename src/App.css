@@ -20,6 +20,7 @@ html {
 img {
     width: 50rem;
     border-radius: 2rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 .image-container {
@@ -37,10 +38,12 @@ img {
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .user-information {
-
+    color: black;
+    font-weight: 600;
 }
 
 .icons {

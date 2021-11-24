@@ -7,7 +7,7 @@ import { IoIosCloseCircleOutline } from 'react-icons/io';
 import { IoIosHeart } from 'react-icons/io';
 import { IoMdContacts } from 'react-icons/io';
 import ReactCountryFlag from "react-country-flag";
-
+import handleResponse from "./utility/handleResponse";
 
 const App: React.FC = () => {
     const initialValues: IUsers = {
@@ -32,7 +32,9 @@ const App: React.FC = () => {
     const getUser = async () => {
         await axiosRequest.getUser()
             .then((res: any) => {
-                setUser(res.data.results[0])
+                return handleResponse(res)
+            }).then((res: any) => {
+                setUser(res[0])
             }).catch((error) => {
                 console.log(error);
             });
