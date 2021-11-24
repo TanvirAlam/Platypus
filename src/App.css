@@ -64,6 +64,7 @@ img {
 
 .action-container {
     display: flex;
+    padding-top: 2rem;
     justify-content: center;
 }
 
