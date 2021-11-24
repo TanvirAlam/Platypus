@@ -1,8 +1,9 @@
 import React from "react";
 import IUsers from "../types/users.type";
 import TinderCard from "react-tinder-card";
-import {IoIosCloseCircleOutline, IoIosHeart, IoMdContacts} from "react-icons/io";
 import UserContent from "./UserContent";
+import ContextProvider from "../store/ContextProvider";
+import Actions from "./Actions";
 
 interface IUserCard {
     onSwipe: (event: React.MouseEvent<HTMLElement>) => void,
@@ -11,7 +12,7 @@ interface IUserCard {
     user: IUsers
 }
 
-const UserCard: React.FC<IUserCard> = (props: IUserCard) => {
+const UserCard: React.FC<IUserCard> = (props) => {
     return (
         <div className="container">
             <TinderCard
@@ -19,19 +20,13 @@ const UserCard: React.FC<IUserCard> = (props: IUserCard) => {
                 preventSwipe={['right', 'left']}
             >
                 <UserContent {...props.user} />
-                <div className="action-container">
-                    <a href="#" {...props.onReject}>
-                        <IoIosCloseCircleOutline className="icons" />
-                    </a>
-                    <a href="#" {...props.onHired}>
-                        <IoIosHeart className="icons" />
-                    </a>
-                </div>
-                <div className="action-container">
-                    <a href="#" {...props.onReject}>
-                        <IoMdContacts className="all-user-icons" />
-                    </a>
-                </div>
+                <ContextProvider.Provider value={{
+                    onReject: props.onReject,
+                    onHired: props.onReject
+                }}>
+                    {props.children}
+                    <Actions />
+                </ContextProvider.Provider>
             </TinderCard>
         </div>
     );
