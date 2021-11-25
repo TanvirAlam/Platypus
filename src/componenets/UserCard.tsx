@@ -8,7 +8,7 @@ import LoadSpinner from "./LoadSpinner";
 const UserCard: React.FC<IUserCard> = (props) => {
     return (
         <CardDiv>
-            { props.isLoading ? (<LoadSpinner />) : (
+            { props.isLoading ? (<LoadSpinner isLoading={true} />) : (
                 <TinderCard
                     key={props.user.name.first}
                     onSwipe={() => {
