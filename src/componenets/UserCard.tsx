@@ -1,34 +1,52 @@
 import React from "react";
 import IUsers from "../types/users.type";
+import styled from "styled-components";
 import TinderCard from "react-tinder-card";
 import UserContent from "./UserContent";
-import ContextProvider from "../store/ContextProvider";
-import Actions from "./Actions";
+
+const CardDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ImgDiv = styled.div`
+  display: flex;
+  position: relative;
+  justify-content: center;
+  width: 300px;
+  height: 300px;
+  background-size: cover;
+`;
 
 interface IUserCard {
-    onSwipe: (event: React.MouseEvent<HTMLElement>) => void,
-    onReject: (event: React.MouseEvent<HTMLElement>) => void,
-    onHired: (event: React.MouseEvent<HTMLElement>) => void,
-    user: IUsers
+    user: IUsers;
+    getUser: () => void,
 }
 
 const UserCard: React.FC<IUserCard> = (props) => {
+    const onCardLeftScreen = (myIdentifier: any) => {
+        console.log(myIdentifier + " left the screen");
+    };
+
     return (
-        <div className="container">
+        <CardDiv>
             <TinderCard
-                {...props.onSwipe}
-                preventSwipe={['right', 'left']}
+                key={props.user.name.first}
+                className="swipe"
+                onSwipe={() => {
+                    return props.getUser()
+                }}
+                onCardLeftScreen={() => onCardLeftScreen("fooBar")}
+                preventSwipe={["up", "down"]}
             >
-                <UserContent {...props.user} />
-                <ContextProvider.Provider value={{
-                    onReject: props.onReject,
-                    onHired: props.onReject
-                }}>
-                    {props.children}
-                    <Actions />
-                </ContextProvider.Provider>
+                <ImgDiv
+                    style={{ backgroundImage: `url(${props.user.picture.large})` }}
+                >
+                    <UserContent {...props.user} />
+                </ImgDiv>
             </TinderCard>
-        </div>
+        </CardDiv>
     );
 }
 
