@@ -20,15 +20,11 @@ const ImgDiv = styled.div`
 `;
 
 interface IUserCard {
-    user: IUsers;
+    user: IUsers,
     getUser: () => void,
 }
 
 const UserCard: React.FC<IUserCard> = (props) => {
-    const onCardLeftScreen = (myIdentifier: any) => {
-        console.log(myIdentifier + " left the screen");
-    };
-
     return (
         <CardDiv>
             <TinderCard
@@ -37,7 +33,9 @@ const UserCard: React.FC<IUserCard> = (props) => {
                 onSwipe={() => {
                     return props.getUser()
                 }}
-                onCardLeftScreen={() => onCardLeftScreen("fooBar")}
+                onCardLeftScreen={() => {
+                    return props.getUser()
+                }}
                 preventSwipe={["up", "down"]}
             >
                 <ImgDiv
