@@ -8,6 +8,8 @@ import Header from "./componenets/Header";
 import Footer from "./componenets/Footer";
 
 const App: React.FC = () => {
+    const [isLoading, setIsLoading] = useState(false);
+
     const initialValues: IUsers = {
         gender: "",
         dob: {
@@ -28,11 +30,13 @@ const App: React.FC = () => {
     const [user, setUser] = useState<IUsers>(initialValues);
 
     const getUser = async () => {
+        setIsLoading(true);
         await axiosRequest.getUser()
             .then((res: any) => {
-                return handleResponse(res)
+                return handleResponse(res);
             }).then((res: any) => {
-                setUser(res[0])
+                setUser(res[0]);
+                setIsLoading(false);
             }).catch((error) => {
                 console.log(error);
             });
@@ -45,7 +49,7 @@ const App: React.FC = () => {
     return (
         <DivWrapper className="App">
             <Header />
-            <UserCard user={user} getUser={getUser} />
+            <UserCard user={user} getUser={getUser} isLoading={isLoading} />
             <Footer getUser={getUser} />
         </DivWrapper>
     );
