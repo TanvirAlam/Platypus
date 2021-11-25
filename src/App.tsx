@@ -3,19 +3,9 @@ import axiosRequest from "./services/axios-request";
 import IUsers from "./types/users.type";
 import handleResponse from "./utility/handleResponse";
 import UserCard from "./componenets/UserCard";
-import styled from "styled-components";
+import {DivWrapper} from "./style/Style";
 import Header from "./componenets/Header";
 import Footer from "./componenets/Footer";
-
-const DivWrapper = styled.div`
-  width: 300px;
-  max-height: 500px;
-  position: absolute;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-`;
 
 const App: React.FC = () => {
     const initialValues: IUsers = {

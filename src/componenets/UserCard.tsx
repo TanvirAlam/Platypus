@@ -1,28 +1,8 @@
 import React from "react";
-import IUsers from "../types/users.type";
-import styled from "styled-components";
+import IUserCard from "../types/userCard.type";
+import {CardDiv, ImgDiv } from "../style/Style";
 import TinderCard from "react-tinder-card";
 import UserContent from "./UserContent";
-
-const CardDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const ImgDiv = styled.div`
-  display: flex;
-  position: relative;
-  justify-content: center;
-  width: 300px;
-  height: 300px;
-  background-size: cover;
-`;
-
-interface IUserCard {
-    user: IUsers,
-    getUser: () => void,
-}
 
 const UserCard: React.FC<IUserCard> = (props) => {
     return (
@@ -38,9 +18,7 @@ const UserCard: React.FC<IUserCard> = (props) => {
                 }}
                 preventSwipe={["up", "down"]}
             >
-                <ImgDiv
-                    style={{ backgroundImage: `url(${props.user.picture.large})` }}
-                >
+                <ImgDiv style={{ backgroundImage: `url(${props.user.picture.large})` }}>
                     <UserContent {...props.user} />
                 </ImgDiv>
             </TinderCard>
