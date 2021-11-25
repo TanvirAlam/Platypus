@@ -6,8 +6,8 @@ const LoadSpinner: React.FC<iLoadSpinner> = (props: iLoadSpinner) => {
     return (
         <div>
             <Loader
-                type="Puff"
-                color="#00BFFF"
+                type="BallTriangle"
+                color="#BD99FF"
                 height={100}
                 width={100}
                 visible={props.isLoading}
