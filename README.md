@@ -17,3 +17,10 @@
     - Use `react-loader-spinner` for spinner
     - Sample Design:
       ![sample-img.png](sample-img.png)
+
+## How to RUN:
+
+1. Clone the repository
+2. `npm i`
+3. `npm start`
+4. `loaclhost:3000`
