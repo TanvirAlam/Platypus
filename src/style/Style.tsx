@@ -1,17 +1,24 @@
 import styled from "styled-components";
 
+const primaryIconColor = "#273447";
+const primaryHoverColor = "#9666EB";
+const cardWidth = "300px";
+const cardHeight = "300px";
+
 export const CardDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: ${cardWidth};
+  height: ${cardHeight};
 `;
 
 export const ImgDiv = styled.div`
   display: flex;
   position: relative;
   justify-content: center;
-  width: 300px;
-  height: 300px;
+  width: ${cardWidth};
+  height: ${cardHeight};
   background-size: cover;
 `;
 
@@ -23,6 +30,8 @@ export const DivWrapper = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background: rgb(249,236,244);
+  background: linear-gradient(180deg, rgba(249,236,244,1) 0%, rgba(222,245,249,1) 16%, rgba(251,237,238,1) 100%);
 `;
 
 export const ContentWrapper = styled.div`
@@ -49,6 +58,15 @@ export const ICON = styled.i`
   padding: 0.3rem;
   cursor: pointer;
   padding: 1rem;
+  color: ${primaryIconColor};
+  
+  &:hover {
+    color: ${primaryHoverColor};
+  }
+`;
+
+export const IMG = styled.img`
+    width: 20%;
 `;
 
 export const HeaderWrapper = styled.div`

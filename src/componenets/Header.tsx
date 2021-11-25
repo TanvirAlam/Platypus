@@ -1,11 +1,11 @@
 import React from "react";
-import {ICON, HeaderWrapper} from "../style/Style";
+import {ICON, IMG, HeaderWrapper} from "../style/Style";
 
 const Header: React.FC = () => {
     return (
         <HeaderWrapper>
             <ICON className="fas fa-users" />
-            <ICON className="fas fa-fire-alt" />
+            <IMG src="/images/img.png" alt="platypus.io"/>
             <ICON className="far fa-envelope" />
         </HeaderWrapper>
     );

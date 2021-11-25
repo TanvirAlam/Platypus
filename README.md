@@ -14,5 +14,6 @@
     - Keep logic components decoupled from UI components
     - `styled-components`, did not feel like using external css
     - Use `react-swipe-card` for swipe effect of each random users
+    - Use `react-loader-spinner` for spinner
     - Sample Design:
       ![sample-img.png](sample-img.png)

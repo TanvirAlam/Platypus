@@ -11,7 +11,6 @@ const UserCard: React.FC<IUserCard> = (props) => {
             { props.isLoading ? (<LoadSpinner />) : (
                 <TinderCard
                     key={props.user.name.first}
-                    className="swipe"
                     onSwipe={() => {
                         return props.getUser()
                     }}
