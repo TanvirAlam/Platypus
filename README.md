@@ -1,6 +1,4 @@
-### Technical Task
-
-- The goal is to create a profile viewer (think Tinder) in which you can easily swipe through profiles showing information and a picture.
+### The goal is to create a profile viewer (think Tinder) in which you can easily swipe through profiles showing information and a picture.
 
 - Key Features:
   - The user should be able to swipe to browse through cards.
