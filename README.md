@@ -14,7 +14,7 @@
     - `styled-components`, did not feel like using external css
     - Use `react-swipe-card` for swipe effect of each random users
     - Use `react-loader-spinner` for spinner
-    - DEMO: ![Peek_2021-12-09_00-08](Peek_2021-12-09_00-08)
+    - DEMO: ![Peek_2021-12-09_00-08.gif](Peek_2021-12-09_00-08.gif)
 
 ## How to RUN:
 
